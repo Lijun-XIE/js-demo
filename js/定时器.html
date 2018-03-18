@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+     window.onload=function(){
+      var oBtn1=document.getElementById('btn1');
+      var oBtn2=document.getElementById('btn2');
+      var timer=null;
+      //要告诉电脑想明确地关闭那个定时器，故要给该定时器设定一个名字变量
+      //因为一般一个网页有多个定时器
+          oBtn1.onclick=function()
+          {
+            timer=setInterval(function(){
+            alert('启动');
+          },1000);
+        }
+
+
+          oBtn2.onclick=function()
+          {
+              clearInterval(timer);//要关闭，则需要制定关闭哪个定时器，该定时器的名字
+
+         }
+
+
+    }
+
+
+    /*
+    function show(){
+      alert('a');
+    }
+    //setInterval(show,1000);  //每隔1000毫秒，执行一次show,每隔一段时间执行一次函数
+    setTimeout(show,1000);  // 只执行一次，不是一直执行
+
+   setInterval(function()   //使用匿名函数操作
+    {
+     alert('a');
+    },1000);
+
+
+    */
+    </script>
+
+  </head>
+  <body>
+   <input id="btn1" type="button" value="开启"/>
+   <input id="btn2"type="button" value="关闭"/>
+  </body>
+</html>

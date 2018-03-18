@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body{
+      background:black;
+      color:white;
+      font-size:50px;
+    }
+    </style>
+    <script>
+    function toDou(n){
+      if(n<10){
+        return '0'+n;    //补零，防止getMinutes()等得到的数字是一位的
+      }
+      else{
+        return ''+n;    //''的作用是转换成字符串
+      }
+    }
+    window.onload=function(){
+      /*
+      //刷新页面时有一秒钟的延迟
+      var aImg=document.getElementsByTagName('img');
+      setInterval(function(){
+        //var str='132321';
+        var oDate=new Date();
+        var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+         //alert(str);
+
+        for (var i=0;i<aImg.length;i++){
+          aImg[i].src='images/'+str[i]+'.png';
+        }
+      },1000);
+      */
+      var aImg=document.getElementsByTagName('img');
+        //var str='132321';
+        function tick()
+        {
+          var oDate=new Date();
+        var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+         //alert(str);
+
+        for (var i=0;i<aImg.length;i++){
+          //aImg[i].src='images/'+str[i]+'.png';//不兼容
+            aImg[i].src='images/'+str[i]+'.png'; //兼容所有
+        }
+      }
+      setInterval(tick,1000);
+      tick();  //调用了函数自身，所以不会出现1秒全为0的页面，不睡出现延时的状态
+
+
+    }
+    </script>
+  </head>
+  <body>
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+    :
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+    :
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+
+  </body>
+</html>

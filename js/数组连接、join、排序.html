@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script>
+    var a=[1,2,3,4,5,6,7];
+    var b=[11,22,33,44,55,66,77];
+
+    //alert(a.concat(b));   //连接数组
+     //alert(b.concat(a));
+     //alert(a.join('-'));
+    // alert(b.join('- -p'));
+    // var c=['un','we','apple','left'];
+     //c.sort();
+     //alert(c);
+
+     var d=[3,99,11,2,1,1344];
+    // d.sort();//这个排列的结果是按字符串来排列的，要是想按数字大小排列，就要再嵌套一个函数
+
+      /* d.sort(function (n1,n2){     //按数字大小排列数组
+         if (n1<n2){
+           return -1;                //return的可以是小于0的任何数，如：-0.99，-7，-100
+         }
+         else if (n1>n2){
+           return 1;                //return的可以是大于0的任何数
+         }
+         else{
+           return 0
+         }
+       });
+       */
+
+       d.sort(function (n1,n2){
+         return n1-n2;             //按数字的大小排列数组，和上面的功能一样，但跟简单书写
+       });
+     alert(d);
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #div1{
+      width:200px;
+      height:300px;
+      border:1px solid black;
+    }
+    .box{
+      background:red;
+    }
+    </style>
+    <script>
+    function change(){
+      var oDiv=document.getElementById('div1');
+      oDiv.className='box';
+    }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="change color to red" onclick="change()"/>
+    <div id="div1"></div>
+
+  </body>
+</html>

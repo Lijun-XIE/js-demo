@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    * {margin:0; padding:0;}
+    #div1 {width:712px; height:108px; margin:100px auto; position:relative; background:red;}
+    #div1 ul {position:absolute; left:0; top:0;}
+    #div1 ul li {float:left; width:178px; height:108px; list-style:none;}
+
+    </style>
+    <script>
+    window.onload=function ()
+    {
+      var oDiv=document.getElementById('div1');
+    	var oUl=oDiv.getElementsByTagName('ul')[0];
+      setInterval(function (){
+        console.log(oUl.style)
+
+    		oUl.style.left=oUl.offsetLeft-8+'px';
+    	}, 30);
+      }
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+        <ul>
+        	<li><img src="1.jpg" /></li>
+        	<li><img src="2.jpg" /></li>
+        	<li><img src="3.jpg" /></li>
+        	<li><img src="4.jpg" /></li>
+        </ul>
+    </div>
+
+
+  </body>
+</html>

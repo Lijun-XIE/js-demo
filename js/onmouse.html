@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>鼠标提示框</title>
+    <style>
+    #div1 {
+      width:220px;
+      height:100px;
+      background:#CCC;
+      border:1px solid #999;
+      display:none;
+    }
+    #div2 {
+      width:200px;
+      height:200px;
+      background:red;
+    }
+    </style>
+    <script>
+     function toGreen()
+     {
+       document.getElementById('div2').style.background='green';
+       document.getElementById('div2').style.width='300px';
+       document.getElementById('div2').style.height='300px';
+     }
+     function toRed()
+     {
+       //重用 写变量
+       var oDiv=document.getElementById('div2');
+       oDiv.style.background='red';
+       oDiv.style.width='200px';
+       oDiv.style.height='200px';
+     }
+
+
+     //定义与调用，只定义，不调用，不会显示结果。定义和调用缺一不可
+     function show()               //这里是定义
+     {
+       alert('定义与调用')
+     }
+     show();    //这里是调用，要是把这句注释掉，则不会弹出对话框
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" onmouseover="document.getElementById('div1').style.display='block';" onmouseout="document.getElementById('div1').style.display='none';"/>
+    <div id="div1">
+      为了您的信息安全。。。
+    </div>
+    <input type="button" value="按钮" onclick="alert('hello');"/>
+   <div id="div2" onmouseover="toGreen()" onmouseout="toRed()">
+   </div>
+  </body>
+</html>

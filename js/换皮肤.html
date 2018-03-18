@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>changeSkin</title>
+    <link id="li" rel="stylesheet" type="text/css" href=""/>
+    <script>
+    function skin1(){
+      var oL=document.getElementById('li');
+      oL.href='skin1.css';
+    }
+    function skin2(){
+      var oL=document.getElementById('li');
+      oL.href='skin2.css';
+    }
+    function setText()
+    {
+      var oTxt=document.getElementById('txt');
+      oTxt.value='点击改文字后，把原来的文字改了';
+    }
+    </script>
+  </head>
+
+  <body>
+        <input type="button" value="皮肤1" onclick="skin1()"/>
+        <input type="button" value="皮肤2" onclick="skin2()" />
+        <input type="text" id="txt" value="原本的字是这样的" />
+        <input type="button" value="改文字" onclick="setText()"/>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #div1 {
+      width:200px;
+      height:300px;
+      background:red;
+    }
+    </style>
+    <script>
+    //可以把最下面兼容性问题写成一个公用function，方便以后调用
+    function getStyle(obj, name)
+    {
+    	if(obj.currentStyle)
+    	{
+    		return obj.currentStyle[name];
+    	}
+    	else
+    	{
+    		return getComputedStyle(obj, false)[name];
+    	}
+    }
+    window.onload=function()
+    {
+      var oDiv=document.getElementById('div1');
+      //alert(oDiv.style.width);  //无法出结果，因为这不是行间样式
+      //alert(oDiv.currentStyle.width); //只兼容IE，其他不行
+      //alert(getComputedStyle(oDiv,null).width); //Chrome、FF，但IE不兼容
+    /*if(oDiv.currentStyle.width){     //解决兼容性问题
+        alert(oDiv.currentStyle.width);
+      }
+       else{
+         alert(getComputedStyle(oDiv,null).width);
+       }
+       */
+       alert(getStyle(oDiv, 'width'));             //注意取样式是有区别的，width，height，position可以直接取，但背景颜色不可以，看下面
+       alert(getStyle(oDiv,'backgroundColor'));     //取background和border不能直接取出样式，要使用backgroundColor来取
+
+    }
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>

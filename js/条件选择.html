@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>菜单下拉框条件选择</title>
+    <style>
+    #div1 {
+      width:100px;
+      height:40px;
+      border:1px solid black;
+      background:gray;
+      display:none;
+    }
+    </style>
+    <script>
+    function showHide()
+    {
+      var oDiv=document.getElementById('div1');
+
+      if (oDiv.style.display=='block')       //display有很多种的，注意先写的条件，不然会发生误差，如若先写if的条件是none，在第一次的时候会发生错误。
+      {
+      oDiv.style.display='none';
+    }
+      else {
+      oDiv.style.display='block';
+    }
+    }
+    </script>
+  </head>
+  <body>
+
+      <input type="button" value="选择按钮" onclick="showHide()"/>
+      <div id="div1">
+        菜单
+      </div>
+  </body>
+</html>

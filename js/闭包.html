@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    var a;             //全局变量
+    function aaa(){
+     a=12;
+    }
+    function bbb(){
+      alert(a);
+    }
+  aaa();            //上面是定义，要是只定义，不调用，不会显示任何东西
+  bbb();
+
+
+ ///////闭包/////
+  function ccc(){    //父函数
+   var e=20;
+
+  function ddd(){    //子函数
+    alert(e);
+   }
+   ddd();     //上面是定义，要是只定义，不调用，不会显示任何东西
+  }
+ccc();       //上面是定义，要是只定义，不调用，不会显示任何东西
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
