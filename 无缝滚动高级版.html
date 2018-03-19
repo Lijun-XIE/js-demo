@@ -34,7 +34,8 @@
       //【0】这里相当于精准控制了第一个ul，功能相当于id。否则oUl是一组数据，使用时应该加（）和循环表明控制对象
       var aLi=oDiv.getElementsByTagName('li');
 
-      oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;//把图案复制了两份，方便下面style.left的设定
+      //oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;//把图案复制了两份，方便下面style.left的设定
+      oUl.innerHTML+=oUl.innerHTML;
       oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
 
       speed=2;
@@ -58,10 +59,10 @@
       timer=setInterval(move, 30);
       }
 
-      document.getElementsByTagName('a')=function(){
-        speed=3;
+      document.getElementsByTagName('a')[0].onclick=function(){
+        speed=5;
       }
-      document.getElementsByTagName('a')=function(){
+      document.getElementsByTagName('a')[1].onclick=function(){
         speed=-3;
       }
 
