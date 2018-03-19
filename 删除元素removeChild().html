@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function(){
+      var aA=document.getElementsByTagName('a');
+      var oUl=document.getElementById('ul1');
+      for (var i=0;i<aA.length;i++){
+        aA[i].onclick=function(){
+          oUl.removeChild(this.parentNode);//删除aA的父级，就是li
+        }
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>nskfheif<a href="javascript:;">删除</a></li>
+      <li>n14<a href="javascript:;">删除</a></li>
+      <li>75657675<a href="javascript:;">删除</a></li>
+      <li>gndri86gh<a href="javascript:;">删除</a></li>
+      <li>09805f<a href="javascript:;">删除</a></li>
+    </ul>
+
+  </body>
+</html>

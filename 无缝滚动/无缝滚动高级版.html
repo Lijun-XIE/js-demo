@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    * {margin:0; padding:0;}
+    #div1 {
+       width:712px;
+       height:108px;
+       margin:100px auto;
+       position:relative;
+       background:red;
+       overflow:hidden;  /*把超出div的部分隐藏了*/
+     }
+    #div1 ul {
+      position:absolute;
+      left:0;
+      top:0;
+    }
+    #div1 ul li {
+      float:left;
+      width:178px;
+      height:108px;
+      list-style:none;
+    }
+
+    </style>
+    <script>
+    window.onload=function ()
+    {
+      var oDiv=document.getElementById('div1');
+    	var oUl=oDiv.getElementsByTagName('ul')[0];
+      //【0】这里相当于精准控制了第一个ul，功能相当于id。否则oUl是一组数据，使用时应该加（）和循环表明控制对象
+      var aLi=oDiv.getElementsByTagName('li');
+
+      //oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;//把图案复制了两份，方便下面style.left的设定
+      oUl.innerHTML+=oUl.innerHTML;
+      oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+
+      speed=2;
+
+      function move(){
+        //向左滚
+        if(oUl.offsetLeft<-oUl.offsetWidth/2){
+          oUl.style.left='0'+'px';
+        }
+       if(oUl.offsetLeft>0){
+          oUl.style.left=-oUl.offsetWidth/2+'px';
+        }
+        oUl.style.left=oUl.offsetLeft+speed+'px';
+    	}
+      var timer=setInterval(move, 30);//注意是move不是move（）
+
+      oDiv.onmouseover=function(){
+        clearInterval(timer);
+      }
+      oDiv.onmouseout=function(){
+      timer=setInterval(move, 30);
+      }
+
+      document.getElementsByTagName('a')[0].onclick=function(){
+        speed=5;
+      }
+      document.getElementsByTagName('a')[1].onclick=function(){
+        speed=-3;
+      }
+
+      }
+    </script>
+  </head>
+  <body>
+    <a href="javascript:;">right</a>
+    <a href="javascript:;">left</a>
+
+    <div id="div1">
+        <ul>
+        	<li><a href="https://translate.google.cn/"><img src="1.jpg" /></a></li>
+        	<li><a href="https://course.tianmaying.com/web-frontend+css#0"><img src="2.jpg" /></a></li>
+        	<li><img src="3.jpg" /></li>
+        	<li><img src="4.jpg" /></li>
+        </ul>
+    </div>
+
+
+  </body>
+</html>

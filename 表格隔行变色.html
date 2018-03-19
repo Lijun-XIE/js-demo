@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function(){
+      var oTab=document.getElementById('tab1');
+      var oldColor='';
+         for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+           //记得写上tBodies[0]，否则会有表头也算上
+           oTab.tBodies[0].rows[i].onmouseover=function(){
+             oldColor=this.style.background;
+             this.style.background='blue';
+           }
+           oTab.tBodies[0].rows[i].onmouseout=function(){
+             this.style.background=oldColor;
+             }
+
+           if (i%2){
+             oTab.tBodies[0].rows[i].style.background='red';
+           }
+           else{
+             oTab.tBodies[0].rows[i].style.background='';
+           }
+           }
+         }
+
+    </script>
+  </head>
+  <body>
+    <table id="tab1" border="1" width="500">
+      <thead>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Age</td>
+      </thead>
+      <tbody>
+        <tr>
+        <td>1</td>
+        <td>Bill</td>
+        <td>20</td>
+      </tr>
+      <tr>
+      <td>2</td>
+      <td>ca</td>
+      <td>90</td>
+    </tr>
+    <tr>
+    <td>3</td>
+    <td>jli</td>
+    <td>27</td>
+  </tr>
+  <tr>
+  <td>4</td>
+  <td>def</td>
+  <td>24</td>
+  </tr>
+  <tr>
+  <td>5</td>
+  <td>Bnifd</td>
+  <td>18</td>
+  </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>

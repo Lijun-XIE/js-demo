@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function(){
+      var oUl=document.getElementById('ul1');
+      //IE6-8只会出现元素节点，其他会计算文本节点和元素节点的和
+      alert(oUl.childNodes.length);//childNodes.length会把计算文本节点和元素节点的和
+
+      for(var i=0;i<oUl.childNodes.length;i++){
+        //nodeType==3 表示的是文本节点
+          //nodeType==1 表示的是元素节点
+          alert(oUl.childNodes[i].nodeType);
+          //childNodes 和 nodeType 配合起来就可以去全部浏览器兼容
+          if (oUl.childNodes[i].nodeType==1){
+            oUl.childNodes[i].style.background='red';
+          }
+      }
+      alert(oUl.children.length);//能只计算元素节点，全部兼容，但不知道大家为什么都不用
+    }
+    </script>
+  </head>
+  <body>
+    <ul id="ul1">这里空白的地方存在文本节点
+      <li>
+        <span>这里存在元素节点</span>
+         <!--子节点只算第一层的，嵌套在里面的元素节点不算-->
+      </li>
+      <li></li>
+    </ul>
+
+  </body>
+</html>
