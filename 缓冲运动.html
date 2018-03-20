@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #div1{
+      width:200px;
+      height:200px;
+      background:red;
+      position:absolute;
+      top:50px;
+      left:600px;
+    }
+    #div2{
+      width:1px;
+      height:300px;
+      background:black;
+      position:absolute;
+      top:50px;
+      left:300px;
+    }
+    </style>
+    <script>
+    function startMove(){
+      var oDiv=document.getElementById('div1');
+      setInterval(function(){
+        var speed=(300-oDiv.offsetLeft)/10;//300是希望在300的地方停止，/10是减缓速度。
+        //改变/10可以改变缓冲的快慢
+        //speed=Math.ceil(speed);
+        speed=speed>0?Math.ceil(speed):Math.floor(speed);
+        //要考虑两边的情况，当speed为=-0.9时，向上取整是0，故要变成下取整。
+        oDiv.style.left=oDiv.offsetLeft+speed+'px';
+
+      },30);
+    }
+    alert(Math.ceil(3.1));//向上取整3.1的向上取整是4.
+    alert(Math.floor(3.9));//向下取整3.9的向下取整是4.
+    </script>
+  </head>
+  <body>
+    <input type="button" value="开始运动" onclick="startMove()"/>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+  </body>
+</html>

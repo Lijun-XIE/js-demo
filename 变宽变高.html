@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    div{
+      width:100px;
+      height:100px;
+      background:red;
+      float:left;
+      margin:20px;
+    }
+
+    </style>
+    <script>
+    window.onload=function(){
+      var aDiv=document.getElementsByTagName('div');
+      for (var i=0;i<aDiv.length;i++){
+        aDiv[i].timer=null;
+        //给每一个div都有一个定时器
+        aDiv[i].onmouseover=function(){
+          startMove(this,200);
+        }
+        aDiv[i].onmouseout=function(){
+          startMove(this,100);
+        }
+      }
+    }
+  //  var timer=null;
+  //var alpha=30;
+    function startMove(obj,iTarget)
+    {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function()
+        {
+          var speed=(iTarget-obj.offsetHeight)/10;
+          speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+          if(obj.offsetHeight==iTarget){
+            clearInterval(obj.timer);
+          }
+          else{
+            obj.style.height=obj.offsetHeight+speed+'px';//注意单位不一样
+          }
+        },30);
+
+    }
+    </script>
+
+  </head>
+  <body>
+    <div id="div1">变高</div>
+    <div id="div2">变宽</div>
+
+  </body>
+</html>

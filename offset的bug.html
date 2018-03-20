@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #div1 {
+      width:100px;
+      height:100px;
+      background:red;
+      float:left;
+      margin:20px;
+      border:1px solid black;
+    }
+    </style>
+    <script>
+    setInterval(function(){
+
+      var oDiv=document.getElementById('div1');
+      oDiv.style.width=oDiv.offsetWidth-1+'px';
+      //因为offsetWidth是把border的数值也算进去了。所以每次width非但没有减少，反而会增加1
+    },30);
+
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+
+  </body>
+</html>

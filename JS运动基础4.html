@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #div1 {
+      width:200px;
+      height:200px;
+      background:green;
+      position:absolute;
+      top:50px;
+      left:0px;
+    }
+    </style>
+    <script>
+    //这是另外一种写法，和JS运动基础实现的功能一样
+
+    //该函数不能写在window.onload能，否则不运行
+    var timer = null;
+
+    function startMove()
+    {
+      var oDiv = document.getElementById('div1');
+
+           clearInterval(timer);
+//不加这句的话，连续点击按钮，物体运动速度会越来越快，因为每按一次按钮就开多了一个定时器
+
+          timer=setInterval(function()
+          {
+              var speed=10;
+//如果速度是7，判断条件是oDiv.offsetLeft == 300，div是不会停的，因为不可能达到300，需改变判断条件
+                 if(oDiv.offsetLeft>=300)
+                 {
+                    clearInterval(timer);
+                }
+//如果不加else，就算满足if的条件，但程序还会执行，每按一次按钮，程序都会往右挪speed
+
+                else
+                {
+                  oDiv.style.left = oDiv.offsetLeft+speed+'px';
+                }
+
+      },30);
+    }
+
+
+    </script>
+  </head>
+  <body>
+    <input id="btn1" type="button" value="开始运动" onclick="startMove()"/>
+    <div id="div1" ></div>
+  </body>
+</html>
